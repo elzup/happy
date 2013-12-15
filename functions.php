@@ -92,6 +92,8 @@ EOF;
 }
 
 
+
+
 function htmlNavBar($name) {
     $url = top_url;
     echo $e =<<<EOF
