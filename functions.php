@@ -11,6 +11,8 @@ define('re_title', '<title>(.*?)<\/title>');
 
 define('st_deli', '__::__::');
 
+define('top_url', '../../');
+
 
 /* --------------------------------------------------------- *
  *     initialization functions
@@ -74,21 +76,52 @@ function loadJson($filename) {
  *     make html functions
 * --------------------------------------------------------- */
 
-function htmlIncludes() {
+function htmlIncludes($root = '../../') {
     echo $e =<<<EOF
 
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.0.0/build/cssreset/reset-min.css" />
-<link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css" media="screen" />
-<link rel="stylesheet/less" type="text/css" href="../../style.less" />
+<link rel="stylesheet" href="$root./lib/bootstrap/css/bootstrap.min.css" media="screen" />
+<link rel="stylesheet/less" type="text/css" href="$root./style.less" />
 
-<script src="../../lib/less-1.3.3.min.js" type="text/javascript"></script>
+<script src="$root./lib/less-1.3.3.min.js" type="text/javascript"></script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script src="../../lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="script.js" type="text/javascript"></script>
+<script src="$root./lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
 EOF;
 }
+
+
+function htmlNavBar($name) {
+    $url = top_url;
+    echo $e =<<<EOF
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{$url}">Happy {$name} Birthday</a>
+        <!--a href="./" class="navbar-brand">JNote-TDU</a-->
+        <!--button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+        </button-->
+      </div>
+      <!--div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="other">その他<span class="caret"></span>
+          </a>
+            <ul class="dropdown-menu" aria-labelledby="cource">
+              <li><a tabindex="-1" href="./bb?id=10000">報告・提案</a></li>
+              <li><a tabindex="-1" href="./bb?id=10001">更新ログ</a></li>
+              <li><a tabindex="-1" href="http://twitter.com/arzzup" target="_blank">作者Twitter</a></li>
+            </ul>
+          </li>
+          <li><a href="./prev">過去のノート</a></li>
+        </ul>
+      </div-->
+    </div>
+  </div>
+EOF;
+}
+
 
 function htmlHeader($title){
     $title .= " - " . site_name;

@@ -17,30 +17,7 @@ setupEncodeing();
 </head>
 <body>
 
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Happy Yutakiya Birthday</a>
-        <!--a href="./" class="navbar-brand">JNote-TDU</a-->
-        <!--button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-          <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-        </button-->
-      </div>
-      <!--div class="navbar-collapse collapse" id="navbar-main">
-        <ul class="nav navbar-nav">
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="other">その他<span class="caret"></span>
-          </a>
-            <ul class="dropdown-menu" aria-labelledby="cource">
-              <li><a tabindex="-1" href="./bb?id=10000">報告・提案</a></li>
-              <li><a tabindex="-1" href="./bb?id=10001">更新ログ</a></li>
-              <li><a tabindex="-1" href="http://twitter.com/arzzup" target="_blank">作者Twitter</a></li>
-            </ul>
-          </li>
-          <li><a href="./prev">過去のノート</a></li>
-        </ul>
-      </div-->
-    </div>
-  </div>
+<?php htmlNavBar('Yutakiya');?>
 
   <div class="container" id="content-main">
     <div class="row">
