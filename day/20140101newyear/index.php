@@ -100,6 +100,9 @@ setupEncodeing();
 						</div>
 					</div>
 				</div>
+				<div class="container" id="tweet-button-div">
+					<button type="button" id="tweet-button" class="btn-draw btn btn-primary">Tweetする</button>
+				</div>
 			</div>
 		</div>
 	</div>
