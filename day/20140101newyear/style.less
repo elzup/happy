@@ -1,3 +1,42 @@
-@charset="utf-8"
+@charset "utf-8";
 
+@import "../../style.less";
 
+@font-color : #333;
+
+html {
+    background-color: #f0c060;
+}
+body {
+    background-color: #f0c060;
+    font-family: 'Lucida Grande', Meiryo, sans-serif !important;
+}
+
+.top-div {
+    >p,h1 {
+        color: @font-color;
+    }
+}
+
+.navbar.navbar-default.navbar-fixed-top {
+    background: #603030;
+}
+.navbar > .container .navbar-brand {
+    color: white;
+    margin-bottom: auto;
+}
+#content-main {
+    margin-top: 61px;
+    margin-bottom: 0;
+}
+#rank-discription-div {
+    margin : 10px;
+}
+
+span#timer-span, span#timer-m-span {
+    font-size: 25px;
+    color: @font-color;
+    &#timer-m-span{
+        color: #533;
+    }
+}

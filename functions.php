@@ -76,12 +76,17 @@ function loadJson($filename) {
  *     make html functions
 * --------------------------------------------------------- */
 
-function htmlIncludes($root = '../../') {
+function htmlIncludes($root = '../../', $subless= "", $line="") {
+	$less_dir = (empty($subless) ? $root."/style.less" : $subless);
 	echo $e =<<<EOF
+
 
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.0.0/build/cssreset/reset-min.css" />
 <link rel="stylesheet" href="$root./lib/bootstrap/css/bootstrap.min.css" media="screen" />
-<link rel="stylesheet/less" type="text/css" href="$root./style.less" />
+<link rel="stylesheet/less" type="text/css" href="{$less_dir}" />
+EOF;
+	echo $line;
+	echo $e = <<<EOF
 
 <script src="$root./lib/less-1.3.3.min.js" type="text/javascript"></script>
 

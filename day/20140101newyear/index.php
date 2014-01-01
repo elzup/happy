@@ -13,7 +13,12 @@ setupEncodeing();
 <meta charset="UTF-8" />
 <title>HappyNewYear 2014</title>
 
-<?php htmlIncludes();?>
+
+<?php
+htmlIncludes('../../', './style.less');
+
+?>
+
 
 <script src="script.js" type="text/javascript"></script>
 
@@ -23,7 +28,7 @@ setupEncodeing();
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="<?=top_url?>">Happy new Year 2014</a>
+				<a class="navbar-brand" href="<?=top_url?>">Happy days</a>
 				<!--a href="./" class="navbar-brand">JNote-TDU</a-->
 				<!--button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
           <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
@@ -48,15 +53,20 @@ setupEncodeing();
 	<div class="container" id="content-main">
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="container">
-					<h2>時空おみくじ</h2>
-					<p>「運も実力の内」運ではなくおみくじを引いた時間が結果となります</p>
+				<div class="container col-lg-12 top-div">
+					<h1>時みくじ</h1>
+					<p>あなたの2014年の運勢を「時」で試します</p>
 				</div>
 
-				<div class="container" id="button-div">
-					<button type="button" typed="w" class="btn-draw btn btn-success">健康運</button>
-					<button type="button" typed="m" class="btn-draw btn btn-warning">&nbsp;金運&nbsp;</button>
-					<button type="button" typed="l" class="btn-draw btn btn-danger">恋愛運</button>
+				<div class="row">
+					<div class="container col-lg-5" id="button-div">
+						<button type="button" typed="w" class="btn-draw btn-lg btn btn-success">健康運</button>
+						<button type="button" typed="m" class="btn-draw btn-lg btn btn-warning">&nbsp;金運&nbsp;</button>
+						<button type="button" typed="l" class="btn-draw btn-lg btn btn-danger">恋愛運</button>
+					</div>
+					<div class="container col-lg-4" id="timer-div">
+						<span id="timer-span"></span><span id="timer-m-span"></span>
+					</div>
 				</div>
 
 				<div class="row">
@@ -66,10 +76,7 @@ setupEncodeing();
 						</div>
 						<div class="panel-body">
 							<p>
-								<span class="msec"></span>
-								<br />
-								<span class="rank"></span>
-								<br />
+								<span class="msec"></span> <br /> <span class="rank"></span> <br />
 							</p>
 						</div>
 					</div>
@@ -79,10 +86,7 @@ setupEncodeing();
 						</div>
 						<div class="panel-body">
 							<p>
-								<span class="msec"></span>
-								<br />
-								<span class="rank"></span>
-								<br />
+								<span class="msec"></span> <br /> <span class="rank"></span> <br />
 							</p>
 						</div>
 					</div>
@@ -92,16 +96,21 @@ setupEncodeing();
 						</div>
 						<div class="panel-body">
 							<p>
-								<span class="msec"></span>
-								<br />
-								<span class="rank"></span>
-								<br />
+								<span class="msec"></span> <br /> <span class="rank"></span> <br />
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="container" id="tweet-button-div">
 					<button type="button" id="tweet-button" class="btn-draw btn btn-primary">Tweetする</button>
+				</div>
+				<div class="container col-lg-7" id="rank-discription-div">
+					<p>大大吉：00,01,8,99,77</p>
+					<p>大吉：10,20,30,40,50,60,70,80,90</p>
+					<p>中吉：残りの3の倍数</p>
+					<p>小吉：残りの2の倍数</p>
+					<p>末吉：残りの50以下</p>
+					<p>末吉：その他</p>
 				</div>
 			</div>
 		</div>
