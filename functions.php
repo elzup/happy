@@ -110,19 +110,22 @@ function htmlNavBar($name, $isBirthday = true) {
           <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
         </button-->
       </div>
-      <!--div class="navbar-collapse collapse" id="navbar-main">
+      <div class="navbar-collapse collapse" id="navbar-main">
         <ul class="nav navbar-nav">
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="other">その他<span class="caret"></span>
-          </a>
+          <li>
+            <a class="dropdown-toggle" href="{$url}" id="other">TOP</a>
+          </li>
+          <!--li class="dropdown">
             <ul class="dropdown-menu" aria-labelledby="cource">
+              <li><a tabindex="-1" href="./bb?id=10000"></a></li>
               <li><a tabindex="-1" href="./bb?id=10000">報告・提案</a></li>
               <li><a tabindex="-1" href="./bb?id=10001">更新ログ</a></li>
               <li><a tabindex="-1" href="http://twitter.com/arzzup" target="_blank">作者Twitter</a></li>
             </ul>
-          </li>
-          <li><a href="./prev">過去のノート</a></li>
+          </li-->
+          <!--li><a href="./prev">過去のノート</a></li-->
         </ul>
-      </div-->
+      </div>
     </div>
   </div>
 EOF;
