@@ -10,22 +10,34 @@ $dir2 = './day/';
 $birth_folders = new FolderList($dir);
 $speci_folders = new FolderList($dir2);
 
+function cmp_date(Folder $a, Folder $b) {
+    foreach (explode(',', 'y,m,d') as $sfx) {
+        if ($a->{'date_' . $sfx} != $b->{'date_' . $sfx}) {
+            return $a->{'date_' . $sfx} < $b->{'date_' . $sfx};
+        }
+    }
+    return 0;
+}
+
 class Folder {
     public $folder_name;
     public $date_str;
     public $target;
+    public $date_y;
+    public $date_m;
+    public $date_d;
 
     public function __construct($folder_name) {
         $this->folder_name = $folder_name;
         $this->date_str = substr($folder_name, 0, 8);
+        $this->date_y = substr($this->date_str, 0, 4);
+        $this->date_m = substr($this->date_str, 4, 2);
+        $this->date_d = substr($this->date_str, 6, 2);
         $this->target = substr($folder_name, 8);
     }
 
     public function getDate() {
-        $date_y = substr($this->date_str, 0, 4);
-        $date_m = substr($this->date_str, 4, 2);
-        $date_d = substr($this->date_str, 6, 2);
-        return "{$date_y}年{$date_m}月{$date_d}日";
+        return sprintf("%02d年%02d月%02d日", $this->date_y, $this->date_m, $this->date_d);
     }
 }
 
@@ -35,6 +47,7 @@ class FolderList {
     public function __construct($dir) {
         $this->dir = $dir;
         $this->folders = $this->getFiles($dir);
+        $this->sortFolders();
     }
 
     public function getFiles ($dir) {
@@ -48,15 +61,19 @@ class FolderList {
         return $folders;
     }
 
+    public function sortFolders() {
+        usort($this->folders, 'cmp_date');
+    }
+
     public function echoList () {
         foreach ($this->folders as $folder) {
-            echo $e =<<<EOF
+?>
 <li class="list-group-item">
-<a href="./{$this->dir}./{$folder->folder_name}">
-<span class="target">{$folder->target}</span><span class="date">{$folder->getDate()}</span>
+<a href="./<?=$this->dir?>./<?=$folder->folder_name?>">
+    <div class="target"><?=$folder->target?></div><div class="date"><?=$folder->getDate()?></div>
 </a>
 </li>
-EOF;
+<?php
         }
     }
 }
@@ -70,7 +87,7 @@ EOF;
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.0.0/build/cssreset/reset-min.css" />
 <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css" media="screen" />
 
-<link rel="stylesheet" type="text/css" href="./top.css" />
+<link rel="stylesheet" type="text/css" href="./style/top.css" />
 
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="backfilter">

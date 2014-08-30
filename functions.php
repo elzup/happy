@@ -76,19 +76,17 @@ function loadJson($filename) {
  *     make html functions
 * --------------------------------------------------------- */
 
-function htmlIncludes($root = '../../', $subless= "", $line="") {
-	$less_dir = (empty($subless) ? $root."/style.less" : $subless);
+function htmlIncludes($root = '../../', $is_include_css = TRUE) {
 	echo $e =<<<EOF
 
 
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.0.0/build/cssreset/reset-min.css" />
-<link rel="stylesheet" href="$root./lib/bootstrap/css/bootstrap.min.css" media="screen" />
-<link rel="stylesheet/less" type="text/css" href="{$less_dir}" />
+<link rel="stylesheet" href="{$root}./lib/bootstrap/css/bootstrap.min.css" media="screen" />
 EOF;
-	echo $line;
-	echo $e = <<<EOF
-
-<script src="$root./lib/less-1.3.3.min.js" type="text/javascript"></script>
+    if ($is_include_css) {
+        echo '<link rel="stylesheet" href="'.$root.'./style/style.css" media="screen" />';
+    }
+    echo $e = <<<EOF
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <script src="$root./lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -149,7 +147,7 @@ function htmlHeader($title){
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.0.0/build/cssreset/reset-min.css" />
 
 <link rel="stylesheet" charset="UTF-8" href="./lib/bootstrap/css/bootstrap.min.css" media="screen" />
-<link rel="stylesheet/less" type="text/css" charset="UTF-8" href="style.less" media="screen" />
+<link rel="stylesheet" charset="UTF-8" href="./style/style.css" media="screen" />
 <script src="lib/less-1.3.3.min.js" type="text/javascript"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

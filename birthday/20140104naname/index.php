@@ -9,16 +9,11 @@ setupEncodeing();
 
 
 <!doctype html>
-<html lang="ja">
-<head>
 <meta charset="UTF-8" />
 <title><?=$name?>HappyBirthday</title>
 
-<?php htmlIncludes('../../', './style.less');?>
-<script src="../../lib/snowfall/snowfall.jquery.js"></script>
-<script src="./script.js"></script>
-</head>
-<body>
+<?php htmlIncludes('../../', FALSE);?>
+<link rel="stylesheet" href="style.css" media="screen" />
 
 	<?php htmlNavBar($name);?>
 
@@ -38,5 +33,5 @@ setupEncodeing();
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+<script src="../../lib/snowfall/snowfall.jquery.js"></script>
+<script src="./script.js"></script>

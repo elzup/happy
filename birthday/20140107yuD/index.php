@@ -14,7 +14,8 @@ setupEncodeing();
 <meta charset="UTF-8" />
 <title><?=$name?>HappyBirthday</title>
 
-<?php htmlIncludes('../../', './style.less');?>
+<?php htmlIncludes('../../', FALSE);?>
+<link rel="stylesheet" href="style.css" media="screen" />
 <!--  ./../lib/ohsnap/ohsnap.js"></script-->
 <script src="../../lib/animatescroll/animatescroll.js"></script>
 <script src="./script.js"></script>
