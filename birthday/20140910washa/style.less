@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+@import "../../style/style.less";
+
+
+#happy,.ok {
+    font-size: 36px;
+    padding: 0 20px;
+}
+
+.btn-munipiece {
+    width: 5em;
+    margin-right: 10px;
+    box-shadow: 0px 2px 3px;
+}
+
+#comp-puzzle {
+    height: 2em;
+}
+#result-box {
+    overflow: auto;
+    >div {
+        float: left;
+        margin-right: 10px;
+        border: solid 1px;
+        border-radius: 3px;
+        padding: 4px;
+    }
+}
+
+.navbar {
+    background-color: red;
+    .navbar-brand {
+        color: white;
+    }
+    a {
+        color: white;
+    }
+}
+
+.balls-box {
+    height: 200px;
+}
+
+.ballbox-wrap {
+    width: 150px;
+    float: left;
+}
+
+.monsterball-wrap {
+    @size: 140px;
+    height: @size;
+    width: @size;
+    float: left;
+    border: solid;
+    border-radius: 29%;
+    margin: 5px;
+    cursor: pointer;
+
+    &.opened {
+        img {
+            width: 100%;
+        }
+        p {
+            margin-top: 5px;
+        }
+        a {
+            color: orange;
+            &:after {
+                content: '↗';
+                text-shadow: 1px 1px 3px;
+            }
+        }
+    }
+
+    &:not(.opened) {
+        box-shadow: inset -7px -8px 26px rgba(0,0,0,0.2), 0px -38px #fff inset, 0px -40px 0px 1px #000 inset;
+        background: #f00;
+        position: relative;
+        >span {
+            border: solid;
+            position: absolute;
+            top: 60%;
+            left: 40%;
+            width: 20%;
+            height: 20%;
+            background: white;
+            border-radius: 2em;
+            box-shadow: -2px -1px 2px gray inset;
+        }
+    }
+}
